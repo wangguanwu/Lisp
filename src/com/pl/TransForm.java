@@ -95,7 +95,6 @@ public class TransForm {
                     } else {
                         sb.append(process(s));
                     }
-
                 }
             }
         }
