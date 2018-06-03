@@ -33,7 +33,7 @@ public class Calculator {
         for(int i= 0 ; i < list.size() ; i++){
             try {
                 String sp[] = list.get(i).split("\\s+|\\t");
-                System.out.println(calcul(sp));
+                System.out.println(list.get(i)+" => "+calcul(sp));
             }catch(IllegalArgumentException e){
                 System.out.println(e);
             }
