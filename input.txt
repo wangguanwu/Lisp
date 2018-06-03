@@ -1,0 +1,4 @@
+( add ( add 2 3 ) ( add 2 3 ) )
+( add ( mul 2 3 ) 3 )
+( mul ( add (  add ( add 2 4 ) ( add 3 5 )  ) 3 ) 5 )
+( add 4 5 )
