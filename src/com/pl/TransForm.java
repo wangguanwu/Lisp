@@ -32,12 +32,22 @@ public class TransForm {
         br.close();
 
     }
+    public List<String> getList(){
+        return list;
+    }
+    public Set<String> getSet(){
+        return set;
+    }
     public void transform(){
         for(String l : list ){
             String re =l.substring(1,l.length()-1).trim();
             String opt[] = re.split("\\s+|\\t");
-            String r= process(opt);
-            System.out.println(l+" => " + r );
+            try {
+                String r = process(opt);
+                System.out.println(l + " => " + r);
+            }catch (IllegalArgumentException e){
+                System.out.println(e);
+            }
         }
     }
 
@@ -88,7 +98,6 @@ public class TransForm {
 
                 }
             }
-
         }
         return sb.toString() + ")";
     }
