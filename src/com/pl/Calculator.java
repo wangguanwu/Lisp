@@ -18,22 +18,22 @@ public class Calculator {
         Collections.addAll(set,"add","sub","mul","div","mod");
     }
 
-    public void readFile(String path)throws IOException {
+    public void readFile(String path)throws IOException {//读取输入文件
         list = new ArrayList<>();
         FileInputStream fileInputStream = new FileInputStream(path);
         BufferedReader br = new BufferedReader(new InputStreamReader(fileInputStream));
         String line = null;
         while((line = br.readLine())!=null){
-            list.add(line);
+            list.add(line);//输入的表达式保存在list列表中
         }
         fileInputStream.close();
         br.close();
     }
-    public void calcul(){
+    public void calcul(){//处理输入文件
         for(int i= 0 ; i < list.size() ; i++){
             try {
                 String sp[] = list.get(i).split("\\s+|\\t");
-                System.out.println(list.get(i)+" => "+calcul(sp));
+                System.out.println(list.get(i)+" => "+calcul(sp));//输出计算结果
             }catch(IllegalArgumentException e){
                 System.out.println(e);
             }
@@ -55,7 +55,7 @@ public class Calculator {
         int l = 0 , r = 0;
 
         try{
-            if( isValid(left )){
+            if( isValid(left )){//判断输入的操作数是否合法
                 l = this.number(left) ;
             }
             if(isValid(right))
@@ -69,7 +69,7 @@ public class Calculator {
             }
             return String.valueOf(result);
         }catch (IllegalArgumentException e){
-           return "e";
+           return "e";//输入操作数如果非法，那么返回e作为计算结果
         }
     }
     private String calcul(String opt[])throws IllegalArgumentException{
@@ -112,7 +112,7 @@ public class Calculator {
            int r = a / b ;
            return String.valueOf(r);
        }catch (ArithmeticException e){
-           return "e" ;
+           return "e" ;//如果除数是0
        }
     }
     private String mod(int a , int b )throws IllegalArgumentException{
@@ -120,7 +120,7 @@ public class Calculator {
             int r = a % b ;
             return String.valueOf(r);
         }catch (ArithmeticException e){
-            return "e" ;
+            return "e" ;//如果除数是0
         }
     }
     public static void main(String args[])throws IOException {
